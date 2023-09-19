@@ -104,7 +104,7 @@ class MPPVEAgent:
         squashed_action = torch.tanh(action)
         log_prob = log_prob - torch.log(action_scale*(1-squashed_action.pow(2))+self._eps).sum(-1, keepdim=True)
 
-        return squashed_action, log_prob
+        return action_scale*squashed_action, log_prob
 
     def actor4ward_plan(self, obs, deterministic=False):
         """ forward propagation of actor (planning version) """
