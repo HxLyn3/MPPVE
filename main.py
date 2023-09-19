@@ -54,7 +54,7 @@ def get_args():
     parser.add_argument("--eval-interval", type=int, default=int(1e3))
     parser.add_argument("--eval-n-episodes", type=int, default=10)
     parser.add_argument("--render", action="store_true", default=False)
-    parser.add_argument("--device", type=str, default="cpu" if torch.cuda.is_available() else "cpu")
+    parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--seed", type=int, default=0)
 
     args = parser.parse_args()
